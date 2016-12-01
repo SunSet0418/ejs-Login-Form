@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Web Programming Test</title>
+    </head>
+    <body>
+        <h1>Web Programming Test</h1>
+        <a href = "/insert">회원가입</a>&nbsp;&nbsp;
+        <a href = "/edit" >회원정보 수정</a>&nbsp;&nbsp;
+        <a href = "/delete" >회원 탈퇴</a>&nbsp;&nbsp;
+        <hr />
+        <table width="100%" border="1">
+            <tr>
+                <th>Username</th>
+                <th>Email</th>
+                <th>ID</th>
+                <th>PASSWORD</th>
+            </tr>
+            <% data.forEach(function (item, index){ %></%>
+                <tr>
+                    <td><%= item.username %></%></td>
+                    <td><%= item.email %></%></td>
+                    <td><%= item.id %></%></td>
+                    <td><%= item.password %></%></td>
+                </tr>
+                <% }); %></%>
+        </table>
+    </body>
+</html>
