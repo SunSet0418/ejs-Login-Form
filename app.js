@@ -1,4 +1,4 @@
-var fs = require('fs')
+mvar fs = require('fs')
 var ejs = require('ejs')
 var mongoose = require('mongoose')
 var express = require('express')
@@ -9,6 +9,7 @@ var session = require('express-session')
 var schema = mongoose.Schema;
 var app = express();
 
+app.use(express.static('public'));
 app.use(bodyParser.urlencoded({
   extended: true
 }))
