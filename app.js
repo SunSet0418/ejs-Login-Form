@@ -25,7 +25,7 @@ app.use(express.static('public'));
 app.use(passport.initialize());
 app.use(passport.session());
 
-mongoose.connect("mongodb://localhost/webprogramming", function(err){
+mongoose.connect("mongodb://localhost/ejs-login-form", function(err){
   if(err){
     console.log("DB Error")
     throw err
