@@ -2,8 +2,6 @@ var fs = require('fs')
 var ejs = require('ejs')
 var mongoose = require('mongoose')
 var express = require('express')
-var passport = require('passport')
-var FacebookStrategy = require('passport-facebook').Strategy;;
 var bodyParser = require('body-parser')
 var session = require('express-session')
 var schema = mongoose.Schema;
@@ -251,65 +249,3 @@ app.get('/logout', function(req, res){
   });
   res.redirect('/')
 })
-
-// passport.use(new FacebookStrategy({
-//     clientID: '1649437005348937',
-//     clientSecret: '5452e5edeb1623b12b87efd4692feb98',
-//     callbackURL: "/auth/facebook/callback",
-//     profileFields: ['id', 'email', 'gender', 'link', 'locale', 'name', 'timezone', 'verified'],
-//   },
-//   function(accessToken, refreshToken, profile, done) {
-//     console.log(profile)
-//     console.log("email : "+profile.emails)
-//     user = new User({
-//       username: profile.familyName+profile.givenName,
-//       id: profile.emails
-//     })
-//
-//     User.findOne({
-//       id: profile.emails
-//     }, function(err, result){
-//       if(err){
-//         console.log("findOne err")
-//         //throw err
-//       }
-//       if(result){
-//         console.log(profile.familyName+profile.givenName+" Facebook Login")
-//         done(null, true, { message: "Login Success!"})
-//       }
-//       else{
-//         user.save(function(err){
-//           if(err){
-//             console.log("save err")
-//             //throw err
-//           }
-//           else{
-//             console.log(profile.familyName+profile.givenName+" Facebook User Save")
-//             done(null, true, { message: 'Register Success!'})
-//           }
-//         })
-//       }
-//     })
-//   }
-// ));
-
-// passport.serializeUser(function(user, done) {
-//   console.log("serialize")
-//   done(null, user);
-// });
-//
-// passport.deserializeUser(function(user, done) {
-//   console.log("deserialize")
-//   done(null, user);
-// });
-//
-// app.get('/auth/facebook', //facebook 로그인을 위한 함수 , 로그인 링크 : http://soylatte.kr/auth/facebook
-//   passport.authenticate('facebook', { scope: ['email', 'public_profile', 'read_stream', 'publish_actions'] })//페이스북에서 받아올 정보 퍼미션 설정
-// );
-//
-// app.get('/auth/facebook/callback', //로그인후에 성공, 실패 여부에 따른 리다이렉션(링크이동)
-//   passport.authenticate('facebook',
-//   {
-//     successRedirect: '/',
-//     failureRedirect: '/'
-//   }));
