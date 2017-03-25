@@ -1,4 +1,4 @@
-mvar fs = require('fs')
+var fs = require('fs')
 var ejs = require('ejs')
 var mongoose = require('mongoose')
 var express = require('express')
