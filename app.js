@@ -7,7 +7,6 @@ var session = require('express-session')
 var schema = mongoose.Schema;
 var app = express();
 
-app.use(express.static('public'));
 app.use(bodyParser.urlencoded({
   extended: true
 }))
@@ -20,10 +19,6 @@ app.use(session({
     maxAge: 1000 * 60 * 60
   }
 }))
-
-app.use(express.static('public'));
-app.use(passport.initialize());
-app.use(passport.session());
 
 mongoose.connect("mongodb://localhost/ejs-login-form", function(err){
   if(err){
