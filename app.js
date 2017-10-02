@@ -215,26 +215,21 @@ app.post('/edit', function(req, res){
     id: body.id,
     password: body.password
   })
-  User.remove({id: req.session.user_id}, function(err){
-    if(err){
-      console.log(err)
-      throw err
-    }
-  user.save(function(err){
-    if(err){
-      console.log("/edit save Error")
-      throw err
-    }
-    else {
-      console.log('Edit success')
-      req.session.username = body.username;
-      req.session.user_id = body.id;
-      req.session.email = body.email;
-      req.session.password = body.password;
-      res.redirect('/main')
-    }
-  })
-})
+    User.update({
+        id : req.session.user_id
+    },{$set:{username:body.username,email:body.email,password:body.password}},(err)=>{
+        if(err){
+            console.log(err)
+            throw err
+        }
+        else{
+            req.session.username = body.username
+            req.session.email = body.email
+            req.session.password = body.password
+            console.log('Update Success')
+            res.redirect('/')
+        }
+    })
 })
 
 app.get('/logout', function(req, res){
